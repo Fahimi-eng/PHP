@@ -16,7 +16,7 @@ class migration
             $line = 5;
             $lines = file($filename , FILE_IGNORE_NEW_LINES);
             $lines[$line] = '$database = "' . $dbname . '";';
-            file_put_contents($filename , implode("\n" , $lines));
+            file_put_contents($filename , implode('\n' , $lines));
             return true;
         }
         catch (PDOException $e){
@@ -55,6 +55,7 @@ class migration
             {
                 $this->db->query($item);
             }
+            echo "Table Created Successfully";
             return true;
         }
         catch (PDOException $e){
